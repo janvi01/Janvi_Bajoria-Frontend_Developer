@@ -22,6 +22,7 @@ function DataGridCapsules({ capsulesData }) {
   useEffect(() => {
     // Update filteredCapsules when search criteria change
     performSearch();
+    // eslint-disable-next-line
   }, [searchCriteria]);
 
   const handleInputChange = (field, value) => {

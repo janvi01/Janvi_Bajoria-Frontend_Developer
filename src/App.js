@@ -14,7 +14,6 @@ function App() {
       try {
         const response = await fetch("http://localhost:8000/index.php");
         const data = await response.json();
-        console.log(data);
         setSpaceData(data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -25,7 +24,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App mb-8">
       <HeroLayout />
       <SearchLayout />
       <DataGridRocket rocketsData={spaceData.rockets} />
