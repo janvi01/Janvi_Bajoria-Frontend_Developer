@@ -153,24 +153,24 @@ export default function Example() {
             </div>
           </div>
         </div>
-        <div class="h-max flex justify-center">
+        <div className="h-max flex justify-center">
           <div>
             <img
-              class="inline-block mt-28 xl:block"
+              className="inline-block mt-28 xl:block"
               src="https://user-images.githubusercontent.com/54521023/116969935-c13d5b00-acd4-11eb-82b1-5ad2ff10fb76.png"
               alt=""
             />
           </div>
           <div>
             <img
-              class="inline-block mt-24 md:mt-0 p-8 md:p-0"
+              className="inline-block mt-24 md:mt-0 p-8 md:p-0"
               src="https://user-images.githubusercontent.com/54521023/116969931-bedb0100-acd4-11eb-99a9-ff5e0ee9f31f.png"
               alt=""
             />
           </div>
           <div>
             <img
-              class="inline-block mt-28 lg:block"
+              className="inline-block mt-28 lg:block"
               src="https://user-images.githubusercontent.com/54521023/116969939-c1d5f180-acd4-11eb-8ad4-9ab9143bdb50.png"
               alt=""
             />
