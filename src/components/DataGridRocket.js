@@ -6,6 +6,7 @@ function DataGridRocket({ rocketsData }) {
       <h1 className="font-bold text-4xl leading-7 text-center m-16 text-indigo-600">
         SpaceX Rockets
       </h1>
+
       <div className="grid grid-cols-4 gap-8 place-items-center m-16">
         {rocketsData.map((rocket) => (
           <div class="max-w-md h-full bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">

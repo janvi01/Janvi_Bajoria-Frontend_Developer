@@ -56,14 +56,17 @@ function DataGridCapsules({ capsulesData }) {
 
   return (
     <div>
+      <h1 className="font-bold text-4xl leading-7 text-center mt-16 text-indigo-600">
+        SpaceX Capsules
+      </h1>
+      <p className="m-8 text-lg text-center leading-8 text-gray-600">
+        Search SpaceX capsules by entering specific capsule status, original
+        launch and type data below.
+      </p>
       <SearchBar
         searchCriteria={searchCriteria}
         onInputChange={handleInputChange}
       />
-
-      <h1 className="font-bold text-4xl leading-7 text-center m-16 text-indigo-600">
-        SpaceX Capsules
-      </h1>
 
       <div className="grid grid-cols-3 gap-8 place-items-center m-8">
         {filteredCapsules.map((capsule) => (

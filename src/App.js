@@ -27,8 +27,8 @@ function App() {
   return (
     <div className="App">
       <HeroLayout />
-      <DataGridRocket rocketsData={spaceData.rockets} />
       <SearchLayout />
+      <DataGridRocket rocketsData={spaceData.rockets} />
       <DataGridCapsules capsulesData={spaceData.capsules} />
     </div>
   );
