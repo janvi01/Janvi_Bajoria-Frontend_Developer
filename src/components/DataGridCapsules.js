@@ -58,6 +58,16 @@ function DataGridCapsules({ capsulesData }) {
     setFilteredCapsules(filtered);
   };
 
+  const handleClearFilter = () => {
+    // Clear the search criteria and reset to the first page
+    setSearchCriteria({
+      status: "",
+      originalLaunch: "",
+      type: "",
+    });
+    setCurrentPage(1);
+  };
+
   // Calculate indices for pagination
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -75,31 +85,36 @@ function DataGridCapsules({ capsulesData }) {
       <SearchBar
         searchCriteria={searchCriteria}
         onInputChange={handleInputChange}
+        onClearFilter={handleClearFilter}
       />
 
       <div className="grid grid-cols-3 gap-8 place-items-center m-8">
-        {currentItems.map((capsule) => (
-          <div
-            key={capsule.capsule_serial}
-            className="block w-full h-full p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
-          >
-            <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-white">
-              {capsule.capsule_serial}
-            </h5>
-            <p className="font-normal text-gray-700 dark:text-gray-400">
-              {capsule.details}
-            </p>
-            <p className="font-normal text-xl text-white">
-              <i>Capsule Type</i> : {capsule.type}
-            </p>
-            <p className="font-normal text-xl text-green-600">
-              <i className="text-white">Capsule Status</i> : {capsule.status}
-            </p>
-            <p className="font-normal text-xl text-white">
-              <i>Capsule launch</i> : {capsule.original_launch}
-            </p>
-          </div>
-        ))}
+        {currentItems.length === 0 ? (
+          <p className="text-red-500 font-bold">No capsules found.</p>
+        ) : (
+          currentItems.map((capsule) => (
+            <div
+              key={capsule.capsule_serial}
+              className="block w-full h-full p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+            >
+              <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-white">
+                {capsule.capsule_serial}
+              </h5>
+              <p className="font-normal text-gray-700 dark:text-gray-400">
+                {capsule.details}
+              </p>
+              <p className="font-normal text-xl text-white">
+                <i>Capsule Type</i> : {capsule.type}
+              </p>
+              <p className="font-normal text-xl text-green-600">
+                <i className="text-white">Capsule Status</i> : {capsule.status}
+              </p>
+              <p className="font-normal text-xl text-white">
+                <i>Capsule launch</i> : {capsule.original_launch}
+              </p>
+            </div>
+          ))
+        )}
       </div>
 
       <div className="flex justify-center">

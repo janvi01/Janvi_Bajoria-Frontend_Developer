@@ -1,6 +1,6 @@
 import React from "react";
 
-function SearchBar({ searchCriteria, onInputChange }) {
+function SearchBar({ searchCriteria, onInputChange, onClearFilter }) {
   // Check if searchCriteria is available
   if (!searchCriteria) {
     return null;
@@ -29,6 +29,12 @@ function SearchBar({ searchCriteria, onInputChange }) {
         value={searchCriteria.type || ""}
         onChange={(e) => onInputChange("type", e.target.value)}
       />
+      <button
+        className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+        onClick={onClearFilter}
+      >
+        Clear Filter
+      </button>
     </div>
   );
 }
