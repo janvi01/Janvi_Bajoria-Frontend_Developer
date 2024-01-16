@@ -1,27 +1,89 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import SearchBar from "./SearchBar";
 
-function DataGridCapsules({ capsulesdata }) {
+function DataGridCapsules({ capsulesData }) {
+  const [filteredCapsules, setFilteredCapsules] = useState([]);
+  const [searchCriteria, setSearchCriteria] = useState({
+    status: "",
+    originalLaunch: "",
+    type: "",
+  });
+
+  useEffect(() => {
+    // Initially, display and set filteredCapsules to capsulesData before user search
+    setFilteredCapsules(capsulesData);
+  }, [capsulesData]);
+
+  useEffect(() => {
+    // Update filteredCapsules when search criteria change
+    performSearch();
+  }, [searchCriteria]);
+
+  const handleInputChange = (field, value) => {
+    // Update the search criteria immediately on change of value
+    setSearchCriteria((prevCriteria) => ({
+      ...prevCriteria,
+      [field]: value,
+    }));
+  };
+
+  const performSearch = () => {
+    const { status, originalLaunch, type } = searchCriteria;
+
+    // Check if capsulesData is available
+    if (!capsulesData) {
+      setFilteredCapsules([]);
+      return;
+    }
+
+    const filtered = capsulesData.filter((capsule) => {
+      const statusMatch =
+        capsule.status &&
+        capsule.status.toLowerCase().includes(status.toLowerCase());
+
+      const originalLaunchMatch =
+        capsule.original_launch &&
+        capsule.original_launch.includes(originalLaunch);
+
+      const typeMatch =
+        capsule.type && capsule.type.toLowerCase().includes(type.toLowerCase());
+
+      return statusMatch && originalLaunchMatch && typeMatch;
+    });
+
+    setFilteredCapsules(filtered);
+  };
+
   return (
     <div>
+      <SearchBar
+        searchCriteria={searchCriteria}
+        onInputChange={handleInputChange}
+      />
+
       <h1 className="font-bold text-4xl leading-7 text-center m-16 text-indigo-600">
         SpaceX Capsules
       </h1>
+
       <div className="grid grid-cols-3 gap-8 place-items-center m-8">
-        {capsulesdata.map((capsule) => (
-          <div class="block w-full h-full p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">
+        {filteredCapsules.map((capsule) => (
+          <div
+            key={capsule.capsule_serial}
+            className="block w-full h-full p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+          >
+            <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-white">
               {capsule.capsule_serial}
             </h5>
-            <p class="font-normal text-gray-700 dark:text-gray-400">
+            <p className="font-normal text-gray-700 dark:text-gray-400">
               {capsule.details}
             </p>
-            <p class="font-normal text-xl text-white">
+            <p className="font-normal text-xl text-white">
               <i>Capsule Type</i> : {capsule.type}
             </p>
-            <p class="font-normal text-xl text-white">
+            <p className="font-normal text-xl text-white">
               <i>Capsule Status</i> : {capsule.status}
             </p>
-            <p class="font-normal text-xl text-white">
+            <p className="font-normal text-xl text-white">
               <i>Capsule launch</i> : {capsule.original_launch}
             </p>
           </div>
