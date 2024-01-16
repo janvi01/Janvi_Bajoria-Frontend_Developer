@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SearchBar from "./SearchBar";
+import CapsulePopup from "./CapsulePopup";
 
 function DataGridCapsules({ capsulesData }) {
   const itemsPerPage = 9;
@@ -10,9 +11,11 @@ function DataGridCapsules({ capsulesData }) {
     originalLaunch: "",
     type: "",
   });
+  const [selectedCapsule, setSelectedCapsule] = useState(null);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
-    // Initially, set filteredCapsules to capsulesData to show data when user loads page initially
+    // Initially, set filteredCapsules to capsulesData to show data when the user loads the page initially
     setFilteredCapsules(capsulesData);
   }, [capsulesData]);
 
@@ -73,6 +76,12 @@ function DataGridCapsules({ capsulesData }) {
   const endIndex = startIndex + itemsPerPage;
   const currentItems = filteredCapsules.slice(startIndex, endIndex);
 
+  const handleCardClick = (capsule) => {
+    // Set the selected capsule and open the popup
+    setSelectedCapsule(capsule);
+    setIsPopupOpen(true);
+  };
+
   return (
     <div>
       <h1 className="font-bold text-4xl leading-7 text-center mt-16 text-indigo-600">
@@ -80,7 +89,7 @@ function DataGridCapsules({ capsulesData }) {
       </h1>
       <p className="m-8 text-lg text-center leading-8 text-gray-600">
         Search SpaceX capsules by entering specific capsule status, original
-        launch and type data below.
+        launch, and type data below.
       </p>
       <SearchBar
         searchCriteria={searchCriteria}
@@ -96,13 +105,11 @@ function DataGridCapsules({ capsulesData }) {
             <div
               key={capsule.capsule_serial}
               className="block w-full h-full p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+              onClick={() => handleCardClick(capsule)}
             >
               <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-white">
                 {capsule.capsule_serial}
               </h5>
-              <p className="font-normal text-gray-700 dark:text-gray-400">
-                {capsule.details}
-              </p>
               <p className="font-normal text-xl text-white">
                 <i>Capsule Type</i> : {capsule.type}
               </p>
@@ -116,6 +123,14 @@ function DataGridCapsules({ capsulesData }) {
           ))
         )}
       </div>
+
+      {isPopupOpen && (
+        <CapsulePopup
+          isOpen={isPopupOpen}
+          capsule={selectedCapsule}
+          onClose={() => setIsPopupOpen(false)}
+        />
+      )}
 
       <div className="flex justify-center">
         <button
