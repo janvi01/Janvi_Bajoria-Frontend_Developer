@@ -84,11 +84,11 @@ function DataGridCapsules({ capsulesData }) {
   };
 
   return (
-    <div>
-      <h1 className="font-bold text-4xl leading-7 text-center mt-16 text-indigo-600">
+    <div className="container mx-auto p-4 sm:p-6 md:p-8">
+      <h1 className="font-bold text-4xl leading-7 text-center mt-8 mb-4 text-indigo-600">
         SpaceX Capsules
       </h1>
-      <p className="m-8 text-lg text-center leading-8 text-gray-600">
+      <p className="text-lg text-center leading-8 text-gray-600 mb-6">
         Search SpaceX capsules by entering specific capsule status, original
         launch, and type data below.
       </p>
@@ -98,27 +98,30 @@ function DataGridCapsules({ capsulesData }) {
         onClearFilter={handleClearFilter}
       />
 
-      <div className="grid grid-cols-3 gap-8 place-items-center m-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {currentItems.length === 0 ? (
-          <p className="text-red-500 font-bold">No capsules found.</p>
+          <p className="text-red-500 font-bold col-span-full">
+            No capsules found.
+          </p>
         ) : (
           currentItems.map((capsule) => (
             <div
               key={capsule.capsule_serial}
-              className="block w-full h-full p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+              className="block w-full p-4 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:bg-gray-100 transition duration-300"
               onClick={() => handleCardClick(capsule)}
             >
-              <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-white">
+              <h5 className="mb-2 text-xl font-bold tracking-tight text-indigo-600">
                 {capsule.capsule_serial}
               </h5>
-              <p className="font-normal text-xl text-white">
-                <i>Capsule Type</i> : {capsule.type}
+              <p className="font-normal text-lg text-gray-800">
+                <i>Capsule Type</i>: {capsule.type}
               </p>
-              <p className="font-normal text-xl text-green-600">
-                <i className="text-white">Capsule Status</i> : {capsule.status}
+              <p className="font-normal text-lg text-green-600">
+                <i className="text-gray-800">Capsule Status</i>:{" "}
+                {capsule.status}
               </p>
-              <p className="font-normal text-xl text-white">
-                <i>Capsule launch</i> : {capsule.original_launch}
+              <p className="font-normal text-lg text-gray-800">
+                <i>Capsule launch</i>: {capsule.original_launch}
               </p>
             </div>
           ))
@@ -133,7 +136,7 @@ function DataGridCapsules({ capsulesData }) {
         />
       )}
 
-      <div className="flex justify-center">
+      <div className="flex justify-center mt-6">
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-2 rounded"
           onClick={() => setCurrentPage(currentPage - 1)}
@@ -141,7 +144,7 @@ function DataGridCapsules({ capsulesData }) {
         >
           Previous
         </button>
-        <span className="text-xl font-bold mx-2">
+        <span className="text-lg font-bold mx-2">
           Page {currentPage} of{" "}
           {Math.ceil(filteredCapsules.length / itemsPerPage)}
         </span>
