@@ -1,3 +1,30 @@
+# Frontend Developer | Brainstorm Force
+
+A React app to share SpaceX data with the world.
+
+## Tech Stack and Library used -
+
+- React
+- Tailwind CSS
+- Headless UI
+- Heroicons
+- PHP
+- API from https://docs.spacexdata.com/
+
+## Demo Screenshots
+
+![Hero Layout](./public/Screenshots/main.png)
+
+![Rockets grid](./public/Screenshots/rockets.png)
+
+![Capsule grids](./public/Screenshots/capsules.png)
+
+## LightHouse Report
+
+(Performance using Chrome Devtools LightHouse)
+
+![Chrome Lighthouse](./public/Screenshots/lighthouse.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
