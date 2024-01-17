@@ -7,9 +7,16 @@ import {
 } from "@heroicons/react/24/outline";
 
 const navigation = [
+  { name: "Mission", href: "#" },
   { name: "Rockets", href: "#" },
   { name: "Capsules", href: "#" },
   { name: "About us", href: "#" },
+];
+
+const imageUrls = [
+  "https://user-images.githubusercontent.com/54521023/116969935-c13d5b00-acd4-11eb-82b1-5ad2ff10fb76.png",
+  "https://user-images.githubusercontent.com/54521023/116969931-bedb0100-acd4-11eb-99a9-ff5e0ee9f31f.png",
+  "https://user-images.githubusercontent.com/54521023/116969939-c1d5f180-acd4-11eb-8ad4-9ab9143bdb50.png",
 ];
 
 export default function Example() {
@@ -45,7 +52,7 @@ export default function Example() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-sm font-semibold leading-6 text-gray-900"
+                className="text-sm font-semibold leading-6 text-gray-900 border-b-2 border-indigo-500"
               >
                 {item.name}
               </a>
@@ -54,7 +61,7 @@ export default function Example() {
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <a
               href="#home"
-              className="text-sm font-semibold leading-6 text-gray-900"
+              className="text-sm font-semibold leading-6 text-gray-900 border-b-2 border-indigo-500"
             >
               Log in <span aria-hidden="true">&rarr;</span>
             </a>
@@ -69,14 +76,6 @@ export default function Example() {
           <div className="fixed inset-0 z-50" />
           <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-              <a href="#home" className="-m-1.5 p-1.5">
-                <span className="sr-only">Your Company</span>
-                <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                  alt=""
-                />
-              </a>
               <button
                 type="button"
                 className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -128,7 +127,7 @@ export default function Example() {
             </div>
           </div>
           <div className="text-center">
-            <h1 className="text-xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            <h1 className="text-6xl font-bold tracking-tight text-gray-900">
               <span className="font-semibold text-indigo-600">SpaceX</span>{" "}
               designs, manufactures and launches.
             </h1>
@@ -153,30 +152,17 @@ export default function Example() {
             </div>
           </div>
         </div>
-        <div className="h-max flex justify-center">
-          <div>
-            <img
-              className="inline-block mt-28 xl:block"
-              src="https://user-images.githubusercontent.com/54521023/116969935-c13d5b00-acd4-11eb-82b1-5ad2ff10fb76.png"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              className="inline-block mt-24 md:mt-0 p-8 md:p-0"
-              src="https://user-images.githubusercontent.com/54521023/116969931-bedb0100-acd4-11eb-99a9-ff5e0ee9f31f.png"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              className="inline-block mt-28 lg:block"
-              src="https://user-images.githubusercontent.com/54521023/116969939-c1d5f180-acd4-11eb-8ad4-9ab9143bdb50.png"
-              alt=""
-            />
-          </div>
+        <div class="flex flex-col items-center md:flex-row justify-center">
+          {imageUrls.map((url, index) => (
+            <div key={index} class={`mb-8 ${index !== 0 ? "md:mb-0" : ""}`}>
+              <img
+                class="inline-block mt-6 md:mt-0 md:p-8 lg:p-0 max-w-full h-auto"
+                src={url}
+                alt=""
+              />
+            </div>
+          ))}
         </div>
-
         <div
           className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
           aria-hidden="true"
