@@ -152,11 +152,11 @@ export default function Example() {
             </div>
           </div>
         </div>
-        <div class="flex flex-col items-center md:flex-row justify-center">
+        <div className="flex flex-col items-center md:flex-row justify-center">
           {imageUrls.map((url, index) => (
-            <div key={index} class={`mb-8 ${index !== 0 ? "md:mb-0" : ""}`}>
+            <div key={index} className={`mb-8 ${index !== 0 ? "md:mb-0" : ""}`}>
               <img
-                class="inline-block mt-6 md:mt-0 md:p-8 lg:p-0 max-w-full h-auto"
+                className="inline-block mt-6 md:mt-0 md:p-8 lg:p-0 max-w-full h-auto"
                 src={url}
                 alt=""
               />
