@@ -11,6 +11,7 @@ function SearchBar({ searchCriteria, onInputChange, onClearFilter }) {
       <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-4">
         <input
           type="text"
+          id="status"
           placeholder="Status"
           className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-sm focus:ring-blue-500 focus:border-blue-500"
           value={searchCriteria.status || ""}
@@ -20,6 +21,7 @@ function SearchBar({ searchCriteria, onInputChange, onClearFilter }) {
       <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-4">
         <input
           type="text"
+          id="launch"
           placeholder="Original Launch"
           className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-sm focus:ring-blue-500 focus:border-blue-500"
           value={searchCriteria.originalLaunch || ""}
@@ -30,6 +32,7 @@ function SearchBar({ searchCriteria, onInputChange, onClearFilter }) {
         <input
           type="text"
           placeholder="Type"
+          id="type"
           className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-sm focus:ring-blue-500 focus:border-blue-500"
           value={searchCriteria.type || ""}
           onChange={(e) => onInputChange("type", e.target.value)}

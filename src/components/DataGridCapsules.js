@@ -110,13 +110,13 @@ function DataGridCapsules({ capsulesData }) {
               className="block w-full p-4 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:bg-gray-100 transition duration-300"
               onClick={() => handleCardClick(capsule)}
             >
-              <h5 className="mb-2 text-xl font-bold tracking-tight text-indigo-600">
+              <h2 className="mb-2 text-xl font-bold tracking-tight text-indigo-600">
                 {capsule.capsule_serial}
-              </h5>
+              </h2>
               <p className="font-normal text-lg text-gray-800">
                 <i>Capsule Type</i>: {capsule.type}
               </p>
-              <p className="font-normal text-lg text-green-600">
+              <p className="font-normal text-lg text-red-700">
                 <i className="text-gray-800">Capsule Status</i>:{" "}
                 {capsule.status}
               </p>
@@ -138,7 +138,7 @@ function DataGridCapsules({ capsulesData }) {
 
       <div className="flex justify-center mt-6">
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-2 rounded"
+          className="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-2 rounded"
           onClick={() => setCurrentPage(currentPage - 1)}
           disabled={currentPage === 1}
         >
@@ -149,7 +149,7 @@ function DataGridCapsules({ capsulesData }) {
           {Math.ceil(filteredCapsules.length / itemsPerPage)}
         </span>
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-2 rounded"
+          className="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-2 rounded"
           onClick={() => setCurrentPage(currentPage + 1)}
           disabled={endIndex >= filteredCapsules.length}
         >

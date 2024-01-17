@@ -25,9 +25,9 @@ function DataGridRocket({ rocketsData }) {
             </a>
             <div className="p-5">
               <a href={rocket.wikipedia} target="_blank" rel="noreferrer">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:underline">
+                <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:underline">
                   {rocket.rocket_name}
-                </h5>
+                </h2>
               </a>
               <p className="mb-3 text-gray-700 dark:text-gray-400">
                 {rocket.description}
@@ -38,7 +38,7 @@ function DataGridRocket({ rocketsData }) {
                 rel="noreferrer"
                 className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-full hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
-                Read more
+                about {rocket.rocket_name}
                 <svg
                   className="rtl:rotate-180 w-4 h-4 ml-2"
                   aria-hidden="true"
