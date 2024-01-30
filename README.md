@@ -15,6 +15,7 @@ https://github.com/janvi01/Janvi_Bajoria-Frontend_Developer/assets/34344234/b8e1
 - Headless UI
 - Heroicons
 - PHP
+- Jest - Adding tests
 - API from https://docs.spacexdata.com/
 
 ## Demo Screenshots
