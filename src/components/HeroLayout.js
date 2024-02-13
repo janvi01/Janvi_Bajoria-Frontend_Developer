@@ -8,8 +8,8 @@ import {
 
 const navigation = [
   { name: "Mission", href: "#" },
-  { name: "Rockets", href: "#" },
-  { name: "Capsules", href: "#" },
+  { name: "Rockets", href: "#rockets" },
+  { name: "Capsules", href: "#capsules" },
   { name: "About us", href: "#" },
 ];
 

@@ -2,7 +2,7 @@ import React from "react";
 
 function DataGridRocket({ rocketsData }) {
   return (
-    <div>
+    <section id="rockets">
       <h1 className="font-bold text-4xl leading-7 text-center mt-16 text-indigo-600">
         SpaceX Rockets
       </h1>
@@ -59,7 +59,7 @@ function DataGridRocket({ rocketsData }) {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

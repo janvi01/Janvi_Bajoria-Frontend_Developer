@@ -84,79 +84,81 @@ function DataGridCapsules({ capsulesData }) {
   };
 
   return (
-    <div className="container mx-auto p-4 sm:p-6 md:p-8">
-      <h1 className="font-bold text-4xl leading-7 text-center mt-8 mb-4 text-indigo-600">
-        SpaceX Capsules
-      </h1>
-      <p className="text-lg text-center leading-8 text-gray-600 mb-6">
-        Search SpaceX capsules by entering specific capsule status, original
-        launch, and type data below.
-      </p>
-      <SearchBar
-        searchCriteria={searchCriteria}
-        onInputChange={handleInputChange}
-        onClearFilter={handleClearFilter}
-      />
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-        {currentItems.length === 0 ? (
-          <p className="text-red-500 font-bold col-span-full">
-            No capsules found.
-          </p>
-        ) : (
-          currentItems.map((capsule) => (
-            <div
-              key={capsule.capsule_serial}
-              className="block w-full p-4 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:bg-gray-100 transition duration-300"
-              onClick={() => handleCardClick(capsule)}
-            >
-              <h2 className="mb-2 text-xl font-bold tracking-tight text-indigo-600">
-                {capsule.capsule_serial}
-              </h2>
-              <p className="font-normal text-lg text-gray-800">
-                <i>Capsule Type</i>: {capsule.type}
-              </p>
-              <p className="font-normal text-lg text-red-700">
-                <i className="text-gray-800">Capsule Status</i>:{" "}
-                {capsule.status}
-              </p>
-              <p className="font-normal text-lg text-gray-800">
-                <i>Capsule launch</i>: {capsule.original_launch}
-              </p>
-            </div>
-          ))
-        )}
-      </div>
-
-      {isPopupOpen && (
-        <CapsulePopup
-          isOpen={isPopupOpen}
-          capsule={selectedCapsule}
-          onClose={() => setIsPopupOpen(false)}
+    <section id="capsules">
+      <div className="container mx-auto p-4 sm:p-6 md:p-8">
+        <h1 className="font-bold text-4xl leading-7 text-center mt-8 mb-4 text-indigo-600">
+          SpaceX Capsules
+        </h1>
+        <p className="text-lg text-center leading-8 text-gray-600 mb-6">
+          Search SpaceX capsules by entering specific capsule status, original
+          launch, and type data below.
+        </p>
+        <SearchBar
+          searchCriteria={searchCriteria}
+          onInputChange={handleInputChange}
+          onClearFilter={handleClearFilter}
         />
-      )}
 
-      <div className="flex justify-center mt-6">
-        <button
-          className="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-2 rounded"
-          onClick={() => setCurrentPage(currentPage - 1)}
-          disabled={currentPage === 1}
-        >
-          Previous
-        </button>
-        <span className="text-lg font-bold mx-2">
-          Page {currentPage} of{" "}
-          {Math.ceil(filteredCapsules.length / itemsPerPage)}
-        </span>
-        <button
-          className="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-2 rounded"
-          onClick={() => setCurrentPage(currentPage + 1)}
-          disabled={endIndex >= filteredCapsules.length}
-        >
-          Next
-        </button>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+          {currentItems.length === 0 ? (
+            <p className="text-red-500 font-bold col-span-full">
+              No capsules found.
+            </p>
+          ) : (
+            currentItems.map((capsule) => (
+              <div
+                key={capsule.capsule_serial}
+                className="block w-full p-4 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:bg-gray-100 transition duration-300"
+                onClick={() => handleCardClick(capsule)}
+              >
+                <h2 className="mb-2 text-xl font-bold tracking-tight text-indigo-600">
+                  {capsule.capsule_serial}
+                </h2>
+                <p className="font-normal text-lg text-gray-800">
+                  <i>Capsule Type</i>: {capsule.type}
+                </p>
+                <p className="font-normal text-lg text-red-700">
+                  <i className="text-gray-800">Capsule Status</i>:{" "}
+                  {capsule.status}
+                </p>
+                <p className="font-normal text-lg text-gray-800">
+                  <i>Capsule launch</i>: {capsule.original_launch}
+                </p>
+              </div>
+            ))
+          )}
+        </div>
+
+        {isPopupOpen && (
+          <CapsulePopup
+            isOpen={isPopupOpen}
+            capsule={selectedCapsule}
+            onClose={() => setIsPopupOpen(false)}
+          />
+        )}
+
+        <div className="flex justify-center mt-6">
+          <button
+            className="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-2 rounded"
+            onClick={() => setCurrentPage(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+          <span className="text-lg font-bold mx-2">
+            Page {currentPage} of{" "}
+            {Math.ceil(filteredCapsules.length / itemsPerPage)}
+          </span>
+          <button
+            className="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-2 rounded"
+            onClick={() => setCurrentPage(currentPage + 1)}
+            disabled={endIndex >= filteredCapsules.length}
+          >
+            Next
+          </button>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 

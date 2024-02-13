@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
 import HeroLayout from "./components/HeroLayout";
 import SearchLayout from "./components/SearchLayout";
 import DataGridRocket from "./components/DataGridRocket";
