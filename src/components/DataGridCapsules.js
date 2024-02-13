@@ -83,6 +83,10 @@ function DataGridCapsules({ capsulesData }) {
     setIsPopupOpen(true);
   };
 
+  if (!capsulesData) {
+    return <div>Loading capsule...</div>;
+  }
+
   return (
     <section id="capsules">
       <div className="container mx-auto p-4 sm:p-6 md:p-8">

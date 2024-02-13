@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense, lazy } from "react";
 import HeroLayout from "./components/HeroLayout";
 import SearchLayout from "./components/SearchLayout";
 import DataGridRocket from "./components/DataGridRocket";
 import fetch from "cross-fetch";
-import DataGridCapsules from "./components/DataGridCapsules";
+
+// Load 'DataGridCapsules' lazily on demand
+const LazyDataGridCapsules = lazy(() =>
+  import("./components/DataGridCapsules")
+);
 
 function App() {
   const [spaceData, setSpaceData] = useState({ rockets: [], capsules: [] });
@@ -27,7 +31,10 @@ function App() {
       <HeroLayout />
       <SearchLayout />
       <DataGridRocket rocketsData={spaceData.rockets} />
-      <DataGridCapsules capsulesData={spaceData.capsules} />
+      {/* <DataGridCapsules capsulesData={spaceData.capsules} /> */}
+      <Suspense fallback={<div>Loading Capsules...</div>}>
+        <LazyDataGridCapsules capsulesData={spaceData.capsules} />
+      </Suspense>
     </div>
   );
 }
