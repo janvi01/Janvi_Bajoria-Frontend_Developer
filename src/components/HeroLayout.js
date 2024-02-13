@@ -2,9 +2,9 @@ import React from "react";
 import NavBar from "./NavBar";
 
 const imageUrls = [
-  "https://user-images.githubusercontent.com/54521023/116969935-c13d5b00-acd4-11eb-82b1-5ad2ff10fb76.png",
-  "https://user-images.githubusercontent.com/54521023/116969931-bedb0100-acd4-11eb-99a9-ff5e0ee9f31f.png",
-  "https://user-images.githubusercontent.com/54521023/116969939-c1d5f180-acd4-11eb-8ad4-9ab9143bdb50.png",
+  "https://media.istockphoto.com/id/1401433457/photo/rocket-launch-digital-business-startup.jpg?s=2048x2048&w=is&k=20&c=3WrS0Ar7KL1H2OiSRYMdvilY9F9552SmEvWVrggtDSE=",
+  "https://images.unsplash.com/photo-1636819488524-1f019c4e1c44?q=80&w=3732&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1517976487492-5750f3195933?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 ];
 
 export default function HeroLayout() {
@@ -60,9 +60,9 @@ export default function HeroLayout() {
           {imageUrls.map((url, index) => (
             <div key={index} className={`mb-8 ${index !== 0 ? "md:mb-0" : ""}`}>
               <img
-                className="inline-block mt-6 md:mt-0 md:p-8 lg:p-0 max-w-full h-auto"
+                className="rounded-full w-96 h-80 inline-block mt-6 mx-4 md:mt-0 md:p-8 lg:p-0 max-w-full object-cover"
                 src={url}
-                alt=""
+                alt="Layout rockets illustration"
               />
             </div>
           ))}
