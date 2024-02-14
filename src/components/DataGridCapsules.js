@@ -126,7 +126,8 @@ function DataGridCapsules({ capsulesData }) {
                   {capsule.status}
                 </p>
                 <p className="font-normal text-lg text-gray-800">
-                  <i>Capsule launch</i>: {capsule.original_launch}
+                  <i>Capsule launch</i>:{" "}
+                  {new Date(capsule.original_launch).toLocaleDateString()}
                 </p>
               </div>
             ))

@@ -19,7 +19,8 @@ function CapsulePopup({ isOpen, capsule, onClose }) {
           <i className="text-black">Capsule Status</i> : {capsule.status}
         </p>
         <p className="font-normal text-xl text-black">
-          <i>Capsule launch</i> : {capsule.original_launch}
+          <i>Capsule launch</i>:{" "}
+          {new Date(capsule.original_launch).toLocaleDateString()}
         </p>
         <p className="font-normal text-xl text-black">
           <i>Capsule ID</i> : {capsule.capsule_id}
