@@ -1,12 +1,6 @@
-# Frontend Developer | Brainstorm Force
+# SpaceX
 
 A React app to share SpaceX data with the world.
-
-## Demo Video URL of the working of the app -
-
-[https://drive.google.com/file/d/1kz1Eg8Ie8YtbMEn0iuZi1l6Fr5zCgq9R/view?usp=sharing](https://drive.google.com/file/d/1TNxOItGCcZGxVtScwpZ6PIjG6F9O41l1/view?usp=sharing)
-
-https://github.com/janvi01/Janvi_Bajoria-Frontend_Developer/assets/34344234/b8e1f7b7-c117-4318-9a36-a78e94fa00a2
 
 ## Tech Stack and Library used -
 
